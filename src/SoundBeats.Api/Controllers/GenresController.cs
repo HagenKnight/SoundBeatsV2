@@ -1,8 +1,11 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using SoundBeats.Application.Models;
 using SoundBeats.Application.Queries;
 using SoundBeats.Core.DTO;
 using SoundBeats.Core.Wrappers;
+using System.Data;
 
 namespace SoundBeats.Api.Controllers
 {
@@ -29,6 +32,7 @@ namespace SoundBeats.Api.Controllers
         // POST: api/Genres
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
+        [Authorize(Roles = CustomRoles.Administrator)]
         public async Task<ApiResponse<CreateGenreDTO>> Post(CreateGenreDTO command) =>
             await _mediator.Send(command);
 
@@ -36,11 +40,13 @@ namespace SoundBeats.Api.Controllers
         // PUT: api/Genres/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
+        [Authorize(Roles = CustomRoles.Administrator)]
         public async Task<ApiResponse<GenreDTOUpdate>> Put(GenreDTOUpdate command) =>
             await _mediator.Send(command);
 
         // DELETE: api/Genres/5
         [HttpDelete("{id}")]
+        [Authorize(Roles = CustomRoles.Administrator)]
         public async Task<ApiResponse<DeleteGenreDTO>> Delete(DeleteGenreDTO command) =>
             await _mediator.Send(command);
 

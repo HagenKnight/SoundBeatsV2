@@ -1,8 +1,4 @@
-﻿using MediatR;
-using SoundBeats.Core.DTO.Base;
-using SoundBeats.Core.Wrappers;
-
-namespace SoundBeats.Core.DTO
+﻿namespace SoundBeats.Core.DTO
 {
     public class ArtistDTO
     {

@@ -2,6 +2,7 @@
 using Newtonsoft.Json.Serialization;
 using SoundBeats.Api.Middleware;
 using SoundBeats.Application.ServiceCollection;
+using SoundBeats.Identity;
 using SoundBeats.Infrastructure.Common.ServiceCollection;
 using SoundBeats.Infrastructure.Persistence.ServiceCollection;
 using SoundBeats.Infrastructure.UnitOfWork.ServiceCollection;
@@ -36,6 +37,18 @@ namespace SoundBeats.Api.ServiceCollection
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
+
+            // call Identity services builder
+            services.ConfigureIdentityServices(configuration);
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsePolicy", builder => builder.AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                );
+            });
+
         }
     }
 }

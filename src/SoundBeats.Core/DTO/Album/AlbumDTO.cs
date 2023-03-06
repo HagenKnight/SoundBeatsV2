@@ -1,4 +1,4 @@
-﻿namespace SoundBeats.Core.DTO.Album
+﻿namespace SoundBeats.Core.DTO
 {
     public class AlbumDTO
     {

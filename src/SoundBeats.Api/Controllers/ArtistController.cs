@@ -1,6 +1,7 @@
 ﻿using MediatR;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using SoundBeats.Application.Models;
 using SoundBeats.Application.Queries;
 using SoundBeats.Core.DTO;
 using SoundBeats.Core.Wrappers;
@@ -27,17 +28,20 @@ namespace SoundBeats.Api.Controllers
 
         // POST: api/Artist
         [HttpPost]
+        [Authorize(Roles = CustomRoles.Administrator)]
         public async Task<ApiResponse<CreateArtistDTO>> Post(CreateArtistDTO command) =>
             await _mediator.Send(command);
 
         // PUT: api/Artist/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
+        [Authorize(Roles = CustomRoles.Administrator)]
         public async Task<ApiResponse<UpdateArtistDTO>> Put(UpdateArtistDTO command) =>
             await _mediator.Send(command);
 
         // DELETE: api/Genres/5
         [HttpDelete("{id}")]
+        [Authorize(Roles = CustomRoles.Administrator)]
         public async Task<ApiResponse<DeleteArtistDTO>> Delete(DeleteArtistDTO command) =>
             await _mediator.Send(command);
     }

@@ -15,7 +15,11 @@ namespace SoundBeats.Api.ServiceCollection
 
             app.UseHttpsRedirection();
             app.UseRouting();
+            app.UseAuthentication();
             app.UseAuthorization();
+
+            app.UseCors("CorsePolicy");
+
             app.UseMiddleware<ErrorHandlerMiddleware>();
             app.UseEndpoints(endpoints =>
             {
