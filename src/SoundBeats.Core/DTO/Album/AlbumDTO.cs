@@ -8,5 +8,6 @@
         public string CoverUrl { get; set; }
         public string ImageType { get; set; }
         public int ArtistId { get; set; }
+        public ArtistDTO Artist { get; set; }
     }
 }

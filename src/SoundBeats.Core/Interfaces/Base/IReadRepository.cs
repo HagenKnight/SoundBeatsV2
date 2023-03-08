@@ -10,7 +10,9 @@ namespace SoundBeats.Core.Interfaces.Base
         int GetCount();
         int GetCount(Expression<Func<T, bool>> predicate);
 
-        Task<IEnumerable<T>> AllAsync(CancellationToken cancellationToken = default, string orderBy = null);
+
+        Task<IEnumerable<T>> AllAsync(CancellationToken cancellationToken = default);
+        Task<IEnumerable<T>> AllAsync(string entityToInclude = null, CancellationToken cancellationToken = default);
         Task<IEnumerable<T>> AllAsync(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken = default, string orderBy = null);
 
         Task<T> GetByIdAsync(int id, CancellationToken cancellationToken = default);

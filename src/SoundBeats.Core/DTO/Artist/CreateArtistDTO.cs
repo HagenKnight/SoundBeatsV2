@@ -10,6 +10,6 @@ namespace SoundBeats.Core.DTO
         public string Name { get; set; }
         public string Biography { get; set; }
         public int CountryId { get; set; }
-        public DateTime CreationDate { get; set; }
+        public DateTime CreatedDate { get; set; }
     }
 }

@@ -10,6 +10,8 @@ namespace SoundBeats.Core.Interfaces.Management
     {
         public bool IsDeleted { get; set; }
         public DateTime? DeleteDate { get; set; }
-        public int? AccountIdDeleteDate { get; set; }
+        //public int? AccountIdDeleteDate { get; set; }
+
+        public string? LastDeletedBy { get; set; }
     }
 }

@@ -8,7 +8,10 @@ namespace SoundBeats.Core.Interfaces.Management
 {
     public interface IUpdateEntity<TKey>
     {
+        //public DateTime? LastModifiedDate { get; set; }
+        //public int? AccountIdUpdateDate { get; set; }
         public DateTime? LastModifiedDate { get; set; }
-        public int? AccountIdUpdateDate { get; set; }
+        public string? LastModifiedBy { get; set; }
+
     }
 }

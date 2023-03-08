@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using SoundBeats.Core.Entities;
+using SoundBeats.Core.Entities.Base;
 using SoundBeats.Infrastructure.Persistence.Data.Configurations;
 
 namespace SoundBeats.Infrastructure.Persistence.Data
@@ -36,6 +37,29 @@ namespace SoundBeats.Infrastructure.Persistence.Data
                     entity.SetTableName(entity.DisplayName());
                  }
             }
+        }
+
+
+        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+            foreach (var entry in ChangeTracker.Entries<EntityBase<int>>())
+            {
+                switch (entry.State)
+                {
+                    case EntityState.Added:
+                        entry.Entity.CreatedDate = DateTime.UtcNow;
+                        entry.Entity.CreatedBy = "system";
+                        entry.Entity.IsDeleted = false;
+                        break;
+
+                    case EntityState.Modified:
+                        entry.Entity.LastModifiedDate = DateTime.UtcNow;
+                        entry.Entity.LastModifiedBy = "system";
+                        break;
+                }
+            }
+
+            return base.SaveChangesAsync(cancellationToken);
         }
 
     }

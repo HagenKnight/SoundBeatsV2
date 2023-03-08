@@ -9,7 +9,10 @@ namespace SoundBeats.Core.Interfaces.Management
     public interface IAddEntity<TKey>
     {
         public TKey Id { get; set; }
-        public int AccountIdCreationDate { get; set; }
+        //public int AccountIdCreationDate { get; set; }
+        //public DateTime CreatedDate { get; set; }
         public DateTime CreatedDate { get; set; }
+        public string? CreatedBy { get; set; }
+
     }
 }

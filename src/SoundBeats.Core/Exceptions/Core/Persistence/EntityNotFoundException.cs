@@ -8,8 +8,8 @@
         public EntityNotFoundException(Type entityType) : this(entityType, null, null) { }
         public EntityNotFoundException(Type entityType, object id) : this(entityType, id, null) { }
         public EntityNotFoundException(Type entityType, object id, Exception innerException) : base(
-          id == null ? $"There is no such an entity given given id. Entity type: {entityType.FullName}" :
-                       $"There is no such an entity. Entity type: {entityType.FullName}, id: {id}", innerException)
+          id == null ? $"There is no such an entity given id. Entity type: {entityType.Name}" :
+                       $"There is no such an entity. Entity type: {entityType.Name}, id: {id}", innerException)
         {
             EntityType = entityType; Id = id;
         }

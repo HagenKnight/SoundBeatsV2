@@ -4,7 +4,6 @@ using SoundBeats.Core.Interfaces.Repository;
 using SoundBeats.Infrastructure.Persistence.Data;
 using SoundBeats.Infrastructure.Persistence.Repository.Base;
 using System.Linq.Expressions;
-using System.Threading;
 
 namespace SoundBeats.Infrastructure.Common.Repositories
 {
@@ -13,13 +12,14 @@ namespace SoundBeats.Infrastructure.Common.Repositories
 
         private readonly SoundBeatsDbContext _soundBeatsDbContext;
         public ArtistRepository(IDbFactory<SoundBeatsDbContext> dbFactory) : base(dbFactory) { }
-
+        /*
 
         public async Task<IEnumerable<Artist>> GetArtists(CancellationToken cancellationToken = default) =>
             await AllAsync(cancellationToken);
 
         public async Task<Artist> GetArtist(int id, CancellationToken cancellationToken = default) =>
             await GetByIdAsync(id, cancellationToken);
+
 
         public async Task<IEnumerable<Artist>> FilterArtist(Expression<Func<Artist, bool>> predicate, CancellationToken cancellationToken = default) =>
             await FilterAsync(predicate, cancellationToken);
@@ -32,5 +32,6 @@ namespace SoundBeats.Infrastructure.Common.Repositories
 
         public void DeleteArtist(Artist artist) =>
             Delete(artist);
+    */
     }
 }

@@ -8,11 +8,6 @@ using SoundBeats.Infrastructure.Common.Repositories;
 using SoundBeats.Infrastructure.Common.Services;
 using SoundBeats.Infrastructure.Persistence.Data;
 using SoundBeats.Infrastructure.Persistence.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SoundBeats.Infrastructure.Common.ServiceCollection
 {
@@ -24,11 +19,13 @@ namespace SoundBeats.Infrastructure.Common.ServiceCollection
             services.AddTransient<IGenreRepository<SoundBeatsDbContext>, GenreRepository>();
             services.AddTransient<ICountryRepository<SoundBeatsDbContext>, CountryRepository>();
             services.AddTransient<IArtistRepository<SoundBeatsDbContext>, ArtistRepository>();
+            services.AddTransient<IAlbumRepository<SoundBeatsDbContext>, AlbumRepository>();
 
             /* Services */
             services.AddTransient<IGenreService, GenreService>();
             services.AddTransient<ICountryService, CountryService>();
             services.AddTransient<IArtistService, ArtistService>();
+            services.AddTransient<IAlbumService, AlbumService>();
 
             /* Helpers */
             services.AddSingleton<IUriService>(o =>

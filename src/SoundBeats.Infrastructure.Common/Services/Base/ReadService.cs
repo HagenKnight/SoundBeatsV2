@@ -35,6 +35,9 @@ namespace SoundBeats.Infrastructure.Persistence.Services.Base
             _mapper = Guard.Against.Null(mapper, nameof(mapper));
         }
 
+
+        #region Query for Single record
+
         public async Task<TQueryDTO> FindAsync(int id, CancellationToken cancellationToken = default)
         {
             TEntity getEntity = await _repository.GetByIdAsync(id, cancellationToken);
@@ -54,6 +57,9 @@ namespace SoundBeats.Infrastructure.Persistence.Services.Base
             else
                 throw new EntityNotFoundException(typeof(TEntity));
         }
+        
+        #endregion
+
 
         public async Task<IEnumerable<TQueryDTO>> FilterAsync(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken = default, string fields = null, string orderBy = null)
         {
@@ -68,7 +74,7 @@ namespace SoundBeats.Infrastructure.Persistence.Services.Base
 
         public async Task<IEnumerable<TQueryDTO>> GetAllAsync(CancellationToken cancellationToken = default, string fields = null, string orderBy = null)
         {
-            IEnumerable<TEntity> list = await _repository.AllAsync(cancellationToken, orderBy);
+            IEnumerable<TEntity> list = await _repository.AllAsync(orderBy, cancellationToken);
 
             /* Limit query fields. */
             if (!string.IsNullOrWhiteSpace(fields))
@@ -88,7 +94,14 @@ namespace SoundBeats.Infrastructure.Persistence.Services.Base
             return Mapper.Map<IEnumerable<TQueryDTO>>(list);
         }
 
+        public async Task<IEnumerable<TQueryDTO>> GetAllIncludeAsync(string entityToInclude = null, CancellationToken cancellationToken = default)
+        {
+            IEnumerable<TEntity> list = await _repository.AllAsync(entityToInclude, cancellationToken);
+            return Mapper.Map<IEnumerable<TQueryDTO>>(list);
+        }
 
+
+        #region Paged queries
         public async Task<IEnumerable<TQueryDTO>> GetPagedAsync(int pageNumber, int pageSize, CancellationToken cancellationToken = default, string fields = null, string orderBy = null)
         {
             _iCount = _repository.GetCount();
@@ -132,5 +145,6 @@ namespace SoundBeats.Infrastructure.Persistence.Services.Base
 
             return Mapper.Map<IEnumerable<TQueryDTO>>(list);
         }
+        #endregion
     }
 }

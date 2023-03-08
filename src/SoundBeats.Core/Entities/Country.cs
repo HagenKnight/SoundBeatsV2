@@ -10,6 +10,6 @@ namespace SoundBeats.Core.Entities
         public string ISO3 { get; set; }
 
         // Navigation property
-        public ICollection<Artist>? Artist { get; set; }
+        public Artist? Artist { get; set; }
     }
 }

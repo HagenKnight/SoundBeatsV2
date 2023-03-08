@@ -1,7 +1,8 @@
 ﻿using AutoMapper;
-using SoundBeats.Application.Queries;
+using SoundBeats.Application.Features.Country;
 using SoundBeats.Core.Custom;
 using SoundBeats.Core.DTO;
+using SoundBeats.Core.DTO.Album;
 using SoundBeats.Core.Entities;
 
 namespace SoundBeats.Application.Mappings
@@ -19,10 +20,11 @@ namespace SoundBeats.Application.Mappings
 
 
             CreateMap<Genre, GenreDTO>().ReverseMap();
-            CreateMap<CreateGenreDTO, Genre>().ReverseMap();
-            CreateMap<CreateGenreDTO, GenreDTO>().ReverseMap();
-            CreateMap<GenreDTOUpdate, Genre>().ReverseMap(); ;
-            CreateMap<GenreDTOUpdate, GenreDTO>().ReverseMap(); ;
+            CreateMap<Genre, CreateGenreDTO>().ReverseMap();
+            CreateMap<GenreDTO, CreateGenreDTO>().ReverseMap();
+
+            CreateMap<UpdateGenreDTO, Genre>().ReverseMap(); ;
+            CreateMap<UpdateGenreDTO, GenreDTO>().ReverseMap(); ;
             CreateMap<DeleteGenreDTO, Genre>().ReverseMap(); ;
             CreateMap<DeleteGenreDTO, GenreDTO>().ReverseMap(); ;
 
@@ -35,6 +37,15 @@ namespace SoundBeats.Application.Mappings
             CreateMap<ArtistDTO, UpdateArtistDTO>().ReverseMap();
             CreateMap<Artist, DeleteArtistDTO>().ReverseMap();
             CreateMap<ArtistDTO, DeleteArtistDTO>().ReverseMap();
+
+            CreateMap<Album, AlbumDTO>().ReverseMap();
+            CreateMap<Album, CreateAlbumDTO>().ReverseMap();
+            CreateMap<AlbumDTO, CreateAlbumDTO>().ReverseMap();
+            CreateMap<Album, UpdateAlbumDTO>().ReverseMap();
+            CreateMap<AlbumDTO, UpdateAlbumDTO>().ReverseMap();
+            CreateMap<Album, DeleteAlbumDTO>().ReverseMap();
+            CreateMap<AlbumDTO, DeleteAlbumDTO>().ReverseMap();
+            
         }
     }
 }

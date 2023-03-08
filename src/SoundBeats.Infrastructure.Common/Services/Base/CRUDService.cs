@@ -33,6 +33,7 @@ namespace SoundBeats.Infrastructure.Persistence.Services.Base
             _unitOfWork = Guard.Against.Null(unitOfWork, nameof(unitOfWork));
         }
 
+        #region Query for Single record
 
         public async Task<TQueryDTO> FindAsync(int id, CancellationToken cancellationToken = default)
         {
@@ -59,6 +60,8 @@ namespace SoundBeats.Infrastructure.Persistence.Services.Base
                 throw new EntityNotFoundException(typeof(TEntity));
         }
 
+        #endregion
+
         public async Task<IEnumerable<TQueryDTO>> FilterAsync(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken = default, string fields = null, string orderBy = null)
         {
             IEnumerable<TEntity> list = await _repository.FilterAsync(predicate, cancellationToken, orderBy);
@@ -70,16 +73,24 @@ namespace SoundBeats.Infrastructure.Persistence.Services.Base
             return Mapper.Map<IEnumerable<TQueryDTO>>(list);
         }
 
-
         public async Task<IEnumerable<TQueryDTO>> GetAllAsync(CancellationToken cancellationToken = default, string fields = null, string orderBy = null)
         {
-            IEnumerable<TEntity> list = await _repository.AllAsync(cancellationToken, orderBy);
+            try
+            {
 
-            /* Limit query fields. */
-            if (!string.IsNullOrWhiteSpace(fields))
-                list = list.AsQueryable().Select<TEntity>($"new({fields})");
+                IEnumerable<TEntity> list = await _repository.AllAsync(orderBy, cancellationToken);
 
-            return Mapper.Map<IEnumerable<TQueryDTO>>(list);
+                /* Limit query fields. */
+                if (!string.IsNullOrWhiteSpace(fields))
+                    list = list.AsQueryable().Select<TEntity>($"new({fields})");
+
+                return Mapper.Map<IEnumerable<TQueryDTO>>(list);
+            }
+            catch (Exception ex)
+            {
+
+                throw new EntityNotFoundException(typeof(TEntity));
+            }
         }
 
         public async Task<IEnumerable<TQueryDTO>> GetAllAsync(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken = default, string fields = null, string orderBy = null)
@@ -93,6 +104,14 @@ namespace SoundBeats.Infrastructure.Persistence.Services.Base
             return Mapper.Map<IEnumerable<TQueryDTO>>(list);
         }
 
+        public async Task<IEnumerable<TQueryDTO>> GetAllIncludeAsync(string entityToInclude = null, CancellationToken cancellationToken = default)
+        {
+            IEnumerable<TEntity> list = await _repository.AllAsync(entityToInclude, cancellationToken);
+            return Mapper.Map<IEnumerable<TQueryDTO>>(list);
+        }
+
+
+        #region Paged queries
 
         public async Task<IEnumerable<TQueryDTO>> GetPagedAsync(int pageNumber, int pageSize, CancellationToken cancellationToken = default, string fields = null, string orderBy = null)
         {
@@ -137,6 +156,7 @@ namespace SoundBeats.Infrastructure.Persistence.Services.Base
             return Mapper.Map<IEnumerable<TQueryDTO>>(list);
         }
 
+        #endregion
 
         #region C.U.D operations
 
@@ -145,7 +165,7 @@ namespace SoundBeats.Infrastructure.Persistence.Services.Base
             try
             {
                 TEntity addEntity = Mapper.Map<TEntity>(objDTO);
-                addEntity.CreatedDate = DateTime.UtcNow;
+                //addEntity.CreatedDate = DateTime.UtcNow;
                 await _repository.AddAsync(addEntity, cancellationToken);
                 await _unitOfWork.CommitAsync(cancellationToken);
                 return Mapper.Map<TQueryDTO>(addEntity);
@@ -168,7 +188,7 @@ namespace SoundBeats.Infrastructure.Persistence.Services.Base
                     throw new EntityNotFoundException(typeof(TEntity), Convert.ToInt32(Mapper.Map<TEntity>(objDTO).Id));
 
                 Mapper.Map(objDTO, updatedEntity);
-                updatedEntity.LastModifiedDate = DateTime.UtcNow;
+                //updatedEntity.LastModifiedDate = DateTime.UtcNow;
                 _repository.Update(updatedEntity);
                 await _unitOfWork.CommitAsync(cancellationToken);
                 return Mapper.Map<TQueryDTO>(updatedEntity);
@@ -188,7 +208,10 @@ namespace SoundBeats.Infrastructure.Persistence.Services.Base
 
             if (autoSave)
             {
-                Mapper.Map(objDTO, deletedEntity); deletedEntity.IsDeleted = true; deletedEntity.DeleteDate = DateTime.UtcNow;
+                Mapper.Map(objDTO, deletedEntity); 
+                deletedEntity.IsDeleted = true; 
+                deletedEntity.DeleteDate = DateTime.UtcNow;
+                deletedEntity.LastDeletedBy = "system";
                 _repository.Update(deletedEntity);
             }
             else

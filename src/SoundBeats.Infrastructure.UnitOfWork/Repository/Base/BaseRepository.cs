@@ -20,12 +20,20 @@ namespace SoundBeats.Infrastructure.Persistence.Repository.Base
         public int GetCount() => _dbSet.Count();
         public int GetCount(Expression<Func<T, bool>> predicate) => _dbSet.Where(predicate).Count();
 
+        public async Task<IEnumerable<T>> AllAsync(CancellationToken cancellationToken = default) =>
+            await _dbSet.ToListAsync(cancellationToken);
 
-        public async Task<IEnumerable<T>> AllAsync(CancellationToken cancellationToken = default, string orderBy = null) =>
-            (!string.IsNullOrEmpty(orderBy)) ? await _dbSet.OrderBy(orderBy).ToListAsync(cancellationToken) : await _dbSet.ToListAsync(cancellationToken);
-        
+        public async Task<IEnumerable<T>> AllAsync(string entityToInclude = null, CancellationToken cancellationToken = default)
+        {
+            if (!string.IsNullOrEmpty(entityToInclude))
+                return await _dbSet.Include(entityToInclude).ToListAsync(cancellationToken);
+            else
+                return await _dbSet.ToListAsync(cancellationToken);
+        }
+
         public async Task<IEnumerable<T>> AllAsync(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken = default, string orderBy = null) =>
             (!string.IsNullOrEmpty(orderBy)) ? await _dbSet.OrderBy(orderBy).ToListAsync(cancellationToken) : await _dbSet.ToListAsync(cancellationToken);
+
 
         public async Task<IEnumerable<T>> FilterAsync(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken = default, string orderBy = null) =>
             (!string.IsNullOrEmpty(orderBy)) ? await _dbSet.Where(predicate).OrderBy(orderBy).ToListAsync(cancellationToken) : await _dbSet.Where(predicate).ToListAsync(cancellationToken);
@@ -53,9 +61,11 @@ namespace SoundBeats.Infrastructure.Persistence.Repository.Base
         public async Task AddRangeAsync(IEnumerable<T> EntityList, CancellationToken cancellationToken = default) =>
             await _dbSet.AddRangeAsync(EntityList, cancellationToken);
 
+
         public void Update(T entity) => _dbSet.Update(entity);
 
-
         public void Delete(T entity) => _dbSet.Remove(entity);
+
+
     }
 }

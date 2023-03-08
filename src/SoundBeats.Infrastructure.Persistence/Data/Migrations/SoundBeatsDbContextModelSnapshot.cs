@@ -17,7 +17,7 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.1")
+                .HasAnnotation("ProductVersion", "7.0.3")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -29,15 +29,6 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("AccountIdCreationDate")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("AccountIdDeleteDate")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("AccountIdUpdateDate")
-                        .HasColumnType("int");
 
                     b.Property<int>("ArtistId")
                         .HasColumnType("int");
@@ -61,6 +52,9 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
+
+                    b.Property<string>("LastDeletedBy")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastModifiedBy")
                         .HasColumnType("nvarchar(max)");
@@ -90,15 +84,6 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("AccountIdCreationDate")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("AccountIdDeleteDate")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("AccountIdUpdateDate")
-                        .HasColumnType("int");
-
                     b.Property<string>("Biography")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -117,6 +102,9 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
+
+                    b.Property<string>("LastDeletedBy")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastModifiedBy")
                         .HasColumnType("nvarchar(max)");
@@ -143,15 +131,6 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("AccountIdCreationDate")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("AccountIdDeleteDate")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("AccountIdUpdateDate")
-                        .HasColumnType("int");
-
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
 
@@ -171,6 +150,9 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
+
+                    b.Property<string>("LastDeletedBy")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastModifiedBy")
                         .HasColumnType("nvarchar(max)");
@@ -194,8 +176,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 1,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(5748),
                             ISO2 = "AD",
                             ISO3 = "AND",
                             IsDeleted = false,
@@ -205,8 +187,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 2,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(5777),
                             ISO2 = "AE",
                             ISO3 = "ARE",
                             IsDeleted = false,
@@ -216,8 +198,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 3,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(5783),
                             ISO2 = "AF",
                             ISO3 = "AFG",
                             IsDeleted = false,
@@ -227,8 +209,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 4,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(5788),
                             ISO2 = "AG",
                             ISO3 = "ATG",
                             IsDeleted = false,
@@ -238,8 +220,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 5,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(5793),
                             ISO2 = "AI",
                             ISO3 = "AIA",
                             IsDeleted = false,
@@ -249,8 +231,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 6,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(5799),
                             ISO2 = "AL",
                             ISO3 = "ALB",
                             IsDeleted = false,
@@ -260,8 +242,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 7,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(5804),
                             ISO2 = "AL",
                             ISO3 = "ALB",
                             IsDeleted = false,
@@ -271,8 +253,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 8,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(5810),
                             ISO2 = "AM",
                             ISO3 = "ARM",
                             IsDeleted = false,
@@ -282,8 +264,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 9,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(5816),
                             ISO2 = "AN",
                             ISO3 = "ANT",
                             IsDeleted = false,
@@ -293,8 +275,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 10,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(5821),
                             ISO2 = "AO",
                             ISO3 = "AGO",
                             IsDeleted = false,
@@ -304,8 +286,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 11,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(5827),
                             ISO2 = "AQ",
                             ISO3 = "ATA",
                             IsDeleted = false,
@@ -315,8 +297,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 12,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(5834),
                             ISO2 = "AR",
                             ISO3 = "ARG",
                             IsDeleted = false,
@@ -326,8 +308,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 13,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(5839),
                             ISO2 = "AS",
                             ISO3 = "ASM",
                             IsDeleted = false,
@@ -337,8 +319,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 14,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(5844),
                             ISO2 = "AT",
                             ISO3 = "AUT",
                             IsDeleted = false,
@@ -348,8 +330,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 15,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(5849),
                             ISO2 = "AU",
                             ISO3 = "AUS",
                             IsDeleted = false,
@@ -359,8 +341,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 16,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(5855),
                             ISO2 = "AW",
                             ISO3 = "ABW",
                             IsDeleted = false,
@@ -370,8 +352,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 17,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(5861),
                             ISO2 = "AX",
                             ISO3 = "ALA",
                             IsDeleted = false,
@@ -381,8 +363,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 18,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(5866),
                             ISO2 = "AZ",
                             ISO3 = "AZE",
                             IsDeleted = false,
@@ -392,8 +374,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 19,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(5874),
                             ISO2 = "BA",
                             ISO3 = "BIH",
                             IsDeleted = false,
@@ -403,8 +385,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 20,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(5879),
                             ISO2 = "BB",
                             ISO3 = "BRB",
                             IsDeleted = false,
@@ -414,8 +396,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 21,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(5885),
                             ISO2 = "BD",
                             ISO3 = "BGD",
                             IsDeleted = false,
@@ -425,8 +407,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 22,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(5890),
                             ISO2 = "BE",
                             ISO3 = "BEL",
                             IsDeleted = false,
@@ -436,8 +418,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 23,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(5896),
                             ISO2 = "BF",
                             ISO3 = "BFA",
                             IsDeleted = false,
@@ -447,8 +429,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 24,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(5901),
                             ISO2 = "BG",
                             ISO3 = "BGR",
                             IsDeleted = false,
@@ -458,8 +440,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 25,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(5907),
                             ISO2 = "BH",
                             ISO3 = "BHR",
                             IsDeleted = false,
@@ -469,8 +451,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 26,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(5912),
                             ISO2 = "BI",
                             ISO3 = "BDI",
                             IsDeleted = false,
@@ -480,8 +462,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 27,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(5918),
                             ISO2 = "BJ",
                             ISO3 = "BEN",
                             IsDeleted = false,
@@ -491,8 +473,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 28,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(5923),
                             ISO2 = "BM",
                             ISO3 = "BMU",
                             IsDeleted = false,
@@ -502,8 +484,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 29,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(5929),
                             ISO2 = "BN",
                             ISO3 = "BRN",
                             IsDeleted = false,
@@ -513,8 +495,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 30,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(5934),
                             ISO2 = "BO",
                             ISO3 = "BOL",
                             IsDeleted = false,
@@ -524,8 +506,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 31,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(5940),
                             ISO2 = "BR",
                             ISO3 = "BRA",
                             IsDeleted = false,
@@ -535,8 +517,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 32,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(5945),
                             ISO2 = "BS",
                             ISO3 = "BHS",
                             IsDeleted = false,
@@ -546,8 +528,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 33,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(5951),
                             ISO2 = "BT",
                             ISO3 = "BTN",
                             IsDeleted = false,
@@ -557,8 +539,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 34,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(5956),
                             ISO2 = "BV",
                             ISO3 = "BVT",
                             IsDeleted = false,
@@ -568,8 +550,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 35,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(5961),
                             ISO2 = "BW",
                             ISO3 = "BWA",
                             IsDeleted = false,
@@ -579,8 +561,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 36,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(5966),
                             ISO2 = "BY",
                             ISO3 = "BLR",
                             IsDeleted = false,
@@ -590,8 +572,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 37,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(5972),
                             ISO2 = "BZ",
                             ISO3 = "BLZ",
                             IsDeleted = false,
@@ -601,8 +583,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 38,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(5977),
                             ISO2 = "CA",
                             ISO3 = "CAN",
                             IsDeleted = false,
@@ -612,8 +594,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 39,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(5982),
                             ISO2 = "CC",
                             ISO3 = "CCK",
                             IsDeleted = false,
@@ -623,8 +605,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 40,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(5988),
                             ISO2 = "CD",
                             ISO3 = "COD",
                             IsDeleted = false,
@@ -634,8 +616,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 41,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(5993),
                             ISO2 = "CF",
                             ISO3 = "CAF",
                             IsDeleted = false,
@@ -645,8 +627,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 42,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6020),
                             ISO2 = "CG",
                             ISO3 = "COG",
                             IsDeleted = false,
@@ -656,8 +638,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 43,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6026),
                             ISO2 = "CH",
                             ISO3 = "CHE",
                             IsDeleted = false,
@@ -667,8 +649,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 44,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6032),
                             ISO2 = "CI",
                             ISO3 = "CIV",
                             IsDeleted = false,
@@ -678,8 +660,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 45,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6038),
                             ISO2 = "CK",
                             ISO3 = "COK",
                             IsDeleted = false,
@@ -689,8 +671,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 46,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6043),
                             ISO2 = "CL",
                             ISO3 = "CHL",
                             IsDeleted = false,
@@ -700,8 +682,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 47,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6048),
                             ISO2 = "CM",
                             ISO3 = "CMR",
                             IsDeleted = false,
@@ -711,8 +693,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 48,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6053),
                             ISO2 = "CN",
                             ISO3 = "CHN",
                             IsDeleted = false,
@@ -722,8 +704,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 49,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6059),
                             ISO2 = "CO",
                             ISO3 = "COL",
                             IsDeleted = false,
@@ -733,8 +715,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 50,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6064),
                             ISO2 = "CR",
                             ISO3 = "CRI",
                             IsDeleted = false,
@@ -744,8 +726,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 51,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6070),
                             ISO2 = "CU",
                             ISO3 = "CUB",
                             IsDeleted = false,
@@ -755,8 +737,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 52,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6075),
                             ISO2 = "CV",
                             ISO3 = "CPV",
                             IsDeleted = false,
@@ -766,8 +748,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 53,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6080),
                             ISO2 = "CX",
                             ISO3 = "CXR",
                             IsDeleted = false,
@@ -777,8 +759,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 54,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6086),
                             ISO2 = "CY",
                             ISO3 = "CYP",
                             IsDeleted = false,
@@ -788,8 +770,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 55,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6092),
                             ISO2 = "CZ",
                             ISO3 = "CZE",
                             IsDeleted = false,
@@ -799,8 +781,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 56,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6097),
                             ISO2 = "DE",
                             ISO3 = "DEU",
                             IsDeleted = false,
@@ -810,8 +792,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 57,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6102),
                             ISO2 = "DJ",
                             ISO3 = "DJI",
                             IsDeleted = false,
@@ -821,8 +803,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 58,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6108),
                             ISO2 = "DK",
                             ISO3 = "DNK",
                             IsDeleted = false,
@@ -832,8 +814,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 59,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6113),
                             ISO2 = "DM",
                             ISO3 = "DMA",
                             IsDeleted = false,
@@ -843,8 +825,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 60,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6119),
                             ISO2 = "DO",
                             ISO3 = "DOM",
                             IsDeleted = false,
@@ -854,8 +836,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 61,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6124),
                             ISO2 = "DZ",
                             ISO3 = "DZA",
                             IsDeleted = false,
@@ -865,8 +847,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 62,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6130),
                             ISO2 = "EC",
                             ISO3 = "ECU",
                             IsDeleted = false,
@@ -876,8 +858,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 63,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6135),
                             ISO2 = "EE",
                             ISO3 = "EST",
                             IsDeleted = false,
@@ -887,8 +869,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 64,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6140),
                             ISO2 = "EG",
                             ISO3 = "EGY",
                             IsDeleted = false,
@@ -898,8 +880,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 65,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6146),
                             ISO2 = "EH",
                             ISO3 = "ESH",
                             IsDeleted = false,
@@ -909,8 +891,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 66,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6151),
                             ISO2 = "ER",
                             ISO3 = "ERI",
                             IsDeleted = false,
@@ -920,8 +902,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 67,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6157),
                             ISO2 = "ES",
                             ISO3 = "ESP",
                             IsDeleted = false,
@@ -931,8 +913,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 68,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6163),
                             ISO2 = "ET",
                             ISO3 = "ETH",
                             IsDeleted = false,
@@ -942,8 +924,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 69,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6168),
                             ISO2 = "FI",
                             ISO3 = "FIN",
                             IsDeleted = false,
@@ -953,8 +935,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 70,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6173),
                             ISO2 = "FJ",
                             ISO3 = "FJI",
                             IsDeleted = false,
@@ -964,8 +946,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 71,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6179),
                             ISO2 = "FK",
                             ISO3 = "FLK",
                             IsDeleted = false,
@@ -975,8 +957,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 72,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6184),
                             ISO2 = "FM",
                             ISO3 = "FSM",
                             IsDeleted = false,
@@ -986,8 +968,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 73,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6189),
                             ISO2 = "FO",
                             ISO3 = "FRO",
                             IsDeleted = false,
@@ -997,8 +979,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 74,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6195),
                             ISO2 = "FR",
                             ISO3 = "FRA",
                             IsDeleted = false,
@@ -1008,8 +990,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 75,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6200),
                             ISO2 = "GA",
                             ISO3 = "GAB",
                             IsDeleted = false,
@@ -1019,8 +1001,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 76,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6205),
                             ISO2 = "GB",
                             ISO3 = "GBR",
                             IsDeleted = false,
@@ -1030,8 +1012,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 77,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6211),
                             ISO2 = "GD",
                             ISO3 = "GRD",
                             IsDeleted = false,
@@ -1041,8 +1023,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 78,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6216),
                             ISO2 = "GE",
                             ISO3 = "GEO",
                             IsDeleted = false,
@@ -1052,8 +1034,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 79,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6221),
                             ISO2 = "GF",
                             ISO3 = "GUF",
                             IsDeleted = false,
@@ -1063,8 +1045,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 80,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6227),
                             ISO2 = "GG",
                             ISO3 = "GGY",
                             IsDeleted = false,
@@ -1074,8 +1056,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 81,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6232),
                             ISO2 = "GH",
                             ISO3 = "GHA",
                             IsDeleted = false,
@@ -1085,8 +1067,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 82,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6237),
                             ISO2 = "GI",
                             ISO3 = "GIB",
                             IsDeleted = false,
@@ -1096,8 +1078,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 83,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6243),
                             ISO2 = "GL",
                             ISO3 = "GRL",
                             IsDeleted = false,
@@ -1107,8 +1089,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 84,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6248),
                             ISO2 = "GM",
                             ISO3 = "GMB",
                             IsDeleted = false,
@@ -1118,8 +1100,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 85,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6254),
                             ISO2 = "GN",
                             ISO3 = "GIN",
                             IsDeleted = false,
@@ -1129,8 +1111,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 86,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6259),
                             ISO2 = "GP",
                             ISO3 = "GLP",
                             IsDeleted = false,
@@ -1140,8 +1122,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 87,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6264),
                             ISO2 = "GQ",
                             ISO3 = "GNQ",
                             IsDeleted = false,
@@ -1151,8 +1133,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 88,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6269),
                             ISO2 = "GR",
                             ISO3 = "GRC",
                             IsDeleted = false,
@@ -1162,8 +1144,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 89,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6275),
                             ISO2 = "GS",
                             ISO3 = "SGS",
                             IsDeleted = false,
@@ -1173,8 +1155,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 90,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6280),
                             ISO2 = "GT",
                             ISO3 = "GTM",
                             IsDeleted = false,
@@ -1184,8 +1166,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 91,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6285),
                             ISO2 = "GU",
                             ISO3 = "GUM",
                             IsDeleted = false,
@@ -1195,8 +1177,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 92,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6290),
                             ISO2 = "GW",
                             ISO3 = "GNB",
                             IsDeleted = false,
@@ -1206,8 +1188,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 93,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6296),
                             ISO2 = "GY",
                             ISO3 = "GUY",
                             IsDeleted = false,
@@ -1217,8 +1199,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 94,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6302),
                             ISO2 = "HK",
                             ISO3 = "HKG",
                             IsDeleted = false,
@@ -1228,8 +1210,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 95,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6308),
                             ISO2 = "HM",
                             ISO3 = "HMD",
                             IsDeleted = false,
@@ -1239,8 +1221,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 96,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6313),
                             ISO2 = "HN",
                             ISO3 = "HND",
                             IsDeleted = false,
@@ -1250,8 +1232,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 97,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6320),
                             ISO2 = "HR",
                             ISO3 = "HRV",
                             IsDeleted = false,
@@ -1261,8 +1243,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 98,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6325),
                             ISO2 = "HT",
                             ISO3 = "HTI",
                             IsDeleted = false,
@@ -1272,8 +1254,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 99,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6331),
                             ISO2 = "HU",
                             ISO3 = "HUN",
                             IsDeleted = false,
@@ -1283,8 +1265,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 100,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6337),
                             ISO2 = "ID",
                             ISO3 = "IDN",
                             IsDeleted = false,
@@ -1294,8 +1276,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 101,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6342),
                             ISO2 = "IE",
                             ISO3 = "IRL",
                             IsDeleted = false,
@@ -1305,8 +1287,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 102,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6347),
                             ISO2 = "IL",
                             ISO3 = "ISR",
                             IsDeleted = false,
@@ -1316,8 +1298,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 103,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6352),
                             ISO2 = "IM",
                             ISO3 = "IMN",
                             IsDeleted = false,
@@ -1327,8 +1309,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 104,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6358),
                             ISO2 = "IN",
                             ISO3 = "IND",
                             IsDeleted = false,
@@ -1338,8 +1320,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 105,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6363),
                             ISO2 = "IO",
                             ISO3 = "IOT",
                             IsDeleted = false,
@@ -1349,8 +1331,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 106,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6384),
                             ISO2 = "IQ",
                             ISO3 = "IRQ",
                             IsDeleted = false,
@@ -1360,8 +1342,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 107,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6390),
                             ISO2 = "IR",
                             ISO3 = "IRN",
                             IsDeleted = false,
@@ -1371,8 +1353,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 108,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6395),
                             ISO2 = "IS",
                             ISO3 = "ISL",
                             IsDeleted = false,
@@ -1382,8 +1364,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 109,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6401),
                             ISO2 = "IT",
                             ISO3 = "ITA",
                             IsDeleted = false,
@@ -1393,8 +1375,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 110,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6406),
                             ISO2 = "JE",
                             ISO3 = "JEY",
                             IsDeleted = false,
@@ -1404,8 +1386,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 111,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6411),
                             ISO2 = "JM",
                             ISO3 = "JAM",
                             IsDeleted = false,
@@ -1415,8 +1397,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 112,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6417),
                             ISO2 = "JO",
                             ISO3 = "JOR",
                             IsDeleted = false,
@@ -1426,8 +1408,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 113,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6422),
                             ISO2 = "JP",
                             ISO3 = "JPN",
                             IsDeleted = false,
@@ -1437,8 +1419,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 114,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6427),
                             ISO2 = "KE",
                             ISO3 = "KEN",
                             IsDeleted = false,
@@ -1448,8 +1430,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 115,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6433),
                             ISO2 = "KG",
                             ISO3 = "KGZ",
                             IsDeleted = false,
@@ -1459,8 +1441,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 116,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6438),
                             ISO2 = "KH",
                             ISO3 = "KHM",
                             IsDeleted = false,
@@ -1470,8 +1452,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 117,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6443),
                             ISO2 = "KI",
                             ISO3 = "KIR",
                             IsDeleted = false,
@@ -1481,8 +1463,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 118,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6449),
                             ISO2 = "KM",
                             ISO3 = "COM",
                             IsDeleted = false,
@@ -1492,8 +1474,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 119,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6454),
                             ISO2 = "KN",
                             ISO3 = "KNA",
                             IsDeleted = false,
@@ -1503,8 +1485,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 120,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6459),
                             ISO2 = "KP",
                             ISO3 = "PRK",
                             IsDeleted = false,
@@ -1514,8 +1496,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 121,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6465),
                             ISO2 = "KR",
                             ISO3 = "KOR",
                             IsDeleted = false,
@@ -1525,8 +1507,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 122,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6471),
                             ISO2 = "KW",
                             ISO3 = "KWT",
                             IsDeleted = false,
@@ -1536,8 +1518,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 123,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6477),
                             ISO2 = "KY",
                             ISO3 = "CYM",
                             IsDeleted = false,
@@ -1547,8 +1529,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 124,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6482),
                             ISO2 = "KZ",
                             ISO3 = "KAZ",
                             IsDeleted = false,
@@ -1558,8 +1540,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 125,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6488),
                             ISO2 = "LA",
                             ISO3 = "LAO",
                             IsDeleted = false,
@@ -1569,8 +1551,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 126,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6493),
                             ISO2 = "LB",
                             ISO3 = "LBN",
                             IsDeleted = false,
@@ -1580,8 +1562,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 127,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6498),
                             ISO2 = "LC",
                             ISO3 = "LCA",
                             IsDeleted = false,
@@ -1591,8 +1573,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 128,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6504),
                             ISO2 = "LI",
                             ISO3 = "LIE",
                             IsDeleted = false,
@@ -1602,8 +1584,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 129,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6509),
                             ISO2 = "LK",
                             ISO3 = "LKA",
                             IsDeleted = false,
@@ -1613,8 +1595,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 130,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6515),
                             ISO2 = "LR",
                             ISO3 = "LBR",
                             IsDeleted = false,
@@ -1624,8 +1606,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 131,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6520),
                             ISO2 = "LS",
                             ISO3 = "LSO",
                             IsDeleted = false,
@@ -1635,8 +1617,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 132,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6525),
                             ISO2 = "LT",
                             ISO3 = "LTU",
                             IsDeleted = false,
@@ -1646,8 +1628,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 133,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6531),
                             ISO2 = "LU",
                             ISO3 = "LUX",
                             IsDeleted = false,
@@ -1657,8 +1639,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 134,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6536),
                             ISO2 = "LV",
                             ISO3 = "LVA",
                             IsDeleted = false,
@@ -1668,8 +1650,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 135,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6542),
                             ISO2 = "LY",
                             ISO3 = "LBY",
                             IsDeleted = false,
@@ -1679,8 +1661,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 136,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6547),
                             ISO2 = "MA",
                             ISO3 = "MAR",
                             IsDeleted = false,
@@ -1690,8 +1672,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 137,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6552),
                             ISO2 = "MC",
                             ISO3 = "MCO",
                             IsDeleted = false,
@@ -1701,8 +1683,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 138,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6557),
                             ISO2 = "MD",
                             ISO3 = "MDA",
                             IsDeleted = false,
@@ -1712,8 +1694,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 139,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6563),
                             ISO2 = "ME",
                             ISO3 = "MNE",
                             IsDeleted = false,
@@ -1723,8 +1705,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 140,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6568),
                             ISO2 = "MG",
                             ISO3 = "MDG",
                             IsDeleted = false,
@@ -1734,8 +1716,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 141,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6574),
                             ISO2 = "MH",
                             ISO3 = "MHL",
                             IsDeleted = false,
@@ -1745,8 +1727,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 142,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6579),
                             ISO2 = "MK",
                             ISO3 = "MKD",
                             IsDeleted = false,
@@ -1756,8 +1738,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 143,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6584),
                             ISO2 = "ML",
                             ISO3 = "MLI",
                             IsDeleted = false,
@@ -1767,8 +1749,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 144,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6589),
                             ISO2 = "MM",
                             ISO3 = "MMR",
                             IsDeleted = false,
@@ -1778,8 +1760,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 145,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6594),
                             ISO2 = "MN",
                             ISO3 = "MNG",
                             IsDeleted = false,
@@ -1789,8 +1771,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 146,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6600),
                             ISO2 = "MO",
                             ISO3 = "MAC",
                             IsDeleted = false,
@@ -1800,8 +1782,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 147,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6605),
                             ISO2 = "MP",
                             ISO3 = "MNP",
                             IsDeleted = false,
@@ -1811,8 +1793,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 148,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6611),
                             ISO2 = "MQ",
                             ISO3 = "MTQ",
                             IsDeleted = false,
@@ -1822,8 +1804,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 149,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6616),
                             ISO2 = "MR",
                             ISO3 = "MRT",
                             IsDeleted = false,
@@ -1833,8 +1815,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 150,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6622),
                             ISO2 = "MS",
                             ISO3 = "MSR",
                             IsDeleted = false,
@@ -1844,8 +1826,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 151,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6627),
                             ISO2 = "MT",
                             ISO3 = "MLT",
                             IsDeleted = false,
@@ -1855,8 +1837,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 152,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6632),
                             ISO2 = "MU",
                             ISO3 = "MUS",
                             IsDeleted = false,
@@ -1866,8 +1848,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 153,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6638),
                             ISO2 = "MV",
                             ISO3 = "MDV",
                             IsDeleted = false,
@@ -1877,8 +1859,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 154,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6643),
                             ISO2 = "MW",
                             ISO3 = "MWI",
                             IsDeleted = false,
@@ -1888,8 +1870,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 155,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6648),
                             ISO2 = "MX",
                             ISO3 = "MEX",
                             IsDeleted = false,
@@ -1899,8 +1881,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 156,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6653),
                             ISO2 = "MY",
                             ISO3 = "MYS",
                             IsDeleted = false,
@@ -1910,8 +1892,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 157,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6659),
                             ISO2 = "MZ",
                             ISO3 = "MOZ",
                             IsDeleted = false,
@@ -1921,8 +1903,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 158,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6664),
                             ISO2 = "NA",
                             ISO3 = "NAM",
                             IsDeleted = false,
@@ -1932,8 +1914,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 159,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6669),
                             ISO2 = "NC",
                             ISO3 = "NCL",
                             IsDeleted = false,
@@ -1943,8 +1925,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 160,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6675),
                             ISO2 = "NE",
                             ISO3 = "NER",
                             IsDeleted = false,
@@ -1954,8 +1936,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 161,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6680),
                             ISO2 = "NF",
                             ISO3 = "NFK",
                             IsDeleted = false,
@@ -1965,8 +1947,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 162,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6686),
                             ISO2 = "NG",
                             ISO3 = "NGA",
                             IsDeleted = false,
@@ -1976,8 +1958,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 163,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6691),
                             ISO2 = "NI",
                             ISO3 = "NIC",
                             IsDeleted = false,
@@ -1987,8 +1969,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 164,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6697),
                             ISO2 = "NL",
                             ISO3 = "NLD",
                             IsDeleted = false,
@@ -1998,8 +1980,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 165,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6702),
                             ISO2 = "NO",
                             ISO3 = "NOR",
                             IsDeleted = false,
@@ -2009,8 +1991,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 166,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6707),
                             ISO2 = "NP",
                             ISO3 = "NPL",
                             IsDeleted = false,
@@ -2020,8 +2002,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 167,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6713),
                             ISO2 = "NR",
                             ISO3 = "NRU",
                             IsDeleted = false,
@@ -2031,8 +2013,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 168,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6718),
                             ISO2 = "NU",
                             ISO3 = "NIU",
                             IsDeleted = false,
@@ -2042,8 +2024,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 169,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6723),
                             ISO2 = "NZ",
                             ISO3 = "NZL",
                             IsDeleted = false,
@@ -2053,8 +2035,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 170,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6743),
                             ISO2 = "OM",
                             ISO3 = "OMN",
                             IsDeleted = false,
@@ -2064,8 +2046,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 171,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6748),
                             ISO2 = "PA",
                             ISO3 = "PAN",
                             IsDeleted = false,
@@ -2075,8 +2057,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 172,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6754),
                             ISO2 = "PE",
                             ISO3 = "PER",
                             IsDeleted = false,
@@ -2086,8 +2068,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 173,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6759),
                             ISO2 = "PF",
                             ISO3 = "PYF",
                             IsDeleted = false,
@@ -2097,8 +2079,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 174,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6765),
                             ISO2 = "PG",
                             ISO3 = "PNG",
                             IsDeleted = false,
@@ -2108,8 +2090,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 175,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6770),
                             ISO2 = "PH",
                             ISO3 = "PHL",
                             IsDeleted = false,
@@ -2119,8 +2101,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 176,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6776),
                             ISO2 = "PK",
                             ISO3 = "PAK",
                             IsDeleted = false,
@@ -2130,8 +2112,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 177,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6783),
                             ISO2 = "PL",
                             ISO3 = "POL",
                             IsDeleted = false,
@@ -2141,8 +2123,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 178,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6788),
                             ISO2 = "PM",
                             ISO3 = "SPM",
                             IsDeleted = false,
@@ -2152,8 +2134,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 179,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6794),
                             ISO2 = "PN",
                             ISO3 = "PCN",
                             IsDeleted = false,
@@ -2163,8 +2145,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 180,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6799),
                             ISO2 = "PR",
                             ISO3 = "PRI",
                             IsDeleted = false,
@@ -2174,8 +2156,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 181,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6805),
                             ISO2 = "PS",
                             ISO3 = "PSE",
                             IsDeleted = false,
@@ -2185,8 +2167,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 182,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6810),
                             ISO2 = "PT",
                             ISO3 = "PRT",
                             IsDeleted = false,
@@ -2196,8 +2178,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 183,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6815),
                             ISO2 = "PW",
                             ISO3 = "PLW",
                             IsDeleted = false,
@@ -2207,8 +2189,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 184,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6821),
                             ISO2 = "PY",
                             ISO3 = "PRY",
                             IsDeleted = false,
@@ -2218,8 +2200,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 185,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6826),
                             ISO2 = "QA",
                             ISO3 = "QAT",
                             IsDeleted = false,
@@ -2229,8 +2211,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 186,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6831),
                             ISO2 = "RE",
                             ISO3 = "REU",
                             IsDeleted = false,
@@ -2240,8 +2222,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 187,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6836),
                             ISO2 = "RO",
                             ISO3 = "ROM",
                             IsDeleted = false,
@@ -2251,8 +2233,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 188,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6842),
                             ISO2 = "RS",
                             ISO3 = "SRB",
                             IsDeleted = false,
@@ -2262,8 +2244,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 189,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6847),
                             ISO2 = "RU",
                             ISO3 = "RUS",
                             IsDeleted = false,
@@ -2273,8 +2255,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 190,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6853),
                             ISO2 = "RW",
                             ISO3 = "RWA",
                             IsDeleted = false,
@@ -2284,8 +2266,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 191,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6858),
                             ISO2 = "SA",
                             ISO3 = "SAU",
                             IsDeleted = false,
@@ -2295,8 +2277,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 192,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6863),
                             ISO2 = "SB",
                             ISO3 = "SLB",
                             IsDeleted = false,
@@ -2306,8 +2288,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 193,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6868),
                             ISO2 = "SC",
                             ISO3 = "SYC",
                             IsDeleted = false,
@@ -2317,8 +2299,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 194,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6873),
                             ISO2 = "SD",
                             ISO3 = "SDN",
                             IsDeleted = false,
@@ -2328,8 +2310,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 195,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6879),
                             ISO2 = "SE",
                             ISO3 = "SWE",
                             IsDeleted = false,
@@ -2339,8 +2321,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 196,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6885),
                             ISO2 = "SG",
                             ISO3 = "SGP",
                             IsDeleted = false,
@@ -2350,8 +2332,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 197,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6890),
                             ISO2 = "SH",
                             ISO3 = "SHN",
                             IsDeleted = false,
@@ -2361,8 +2343,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 198,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6896),
                             ISO2 = "SI",
                             ISO3 = "SVN",
                             IsDeleted = false,
@@ -2372,8 +2354,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 199,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6901),
                             ISO2 = "SJ",
                             ISO3 = "SJM",
                             IsDeleted = false,
@@ -2383,8 +2365,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 200,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6907),
                             ISO2 = "SK",
                             ISO3 = "SVK",
                             IsDeleted = false,
@@ -2394,8 +2376,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 201,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6912),
                             ISO2 = "SL",
                             ISO3 = "SLE",
                             IsDeleted = false,
@@ -2405,8 +2387,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 202,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6917),
                             ISO2 = "SM",
                             ISO3 = "SMR",
                             IsDeleted = false,
@@ -2416,8 +2398,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 203,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6922),
                             ISO2 = "SN",
                             ISO3 = "SEN",
                             IsDeleted = false,
@@ -2427,8 +2409,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 204,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6928),
                             ISO2 = "SO",
                             ISO3 = "SOM",
                             IsDeleted = false,
@@ -2438,8 +2420,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 205,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6933),
                             ISO2 = "SR",
                             ISO3 = "SUR",
                             IsDeleted = false,
@@ -2449,8 +2431,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 206,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6938),
                             ISO2 = "ST",
                             ISO3 = "STP",
                             IsDeleted = false,
@@ -2460,8 +2442,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 207,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6945),
                             ISO2 = "SV",
                             ISO3 = "SLV",
                             IsDeleted = false,
@@ -2471,8 +2453,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 208,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6951),
                             ISO2 = "SY",
                             ISO3 = "SYR",
                             IsDeleted = false,
@@ -2482,8 +2464,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 209,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6956),
                             ISO2 = "SZ",
                             ISO3 = "SWZ",
                             IsDeleted = false,
@@ -2493,8 +2475,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 210,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6962),
                             ISO2 = "TC",
                             ISO3 = "TCA",
                             IsDeleted = false,
@@ -2504,8 +2486,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 211,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6967),
                             ISO2 = "TD",
                             ISO3 = "TCD",
                             IsDeleted = false,
@@ -2515,8 +2497,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 212,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6974),
                             ISO2 = "TF",
                             ISO3 = "ATF",
                             IsDeleted = false,
@@ -2526,8 +2508,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 213,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6979),
                             ISO2 = "TG",
                             ISO3 = "TGO",
                             IsDeleted = false,
@@ -2537,8 +2519,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 214,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6986),
                             ISO2 = "TH",
                             ISO3 = "THA",
                             IsDeleted = false,
@@ -2548,8 +2530,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 215,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6993),
                             ISO2 = "TJ",
                             ISO3 = "TJK",
                             IsDeleted = false,
@@ -2559,8 +2541,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 216,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(6999),
                             ISO2 = "TK",
                             ISO3 = "TKL",
                             IsDeleted = false,
@@ -2570,8 +2552,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 217,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(7004),
                             ISO2 = "TL",
                             ISO3 = "TKM",
                             IsDeleted = false,
@@ -2581,8 +2563,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 218,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(7009),
                             ISO2 = "TM",
                             ISO3 = "TUN",
                             IsDeleted = false,
@@ -2592,8 +2574,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 219,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(7014),
                             ISO2 = "TN",
                             ISO3 = "TON",
                             IsDeleted = false,
@@ -2603,8 +2585,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 220,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(7020),
                             ISO2 = "TO",
                             ISO3 = "TMP",
                             IsDeleted = false,
@@ -2614,8 +2596,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 221,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(7026),
                             ISO2 = "TR",
                             ISO3 = "TUR",
                             IsDeleted = false,
@@ -2625,8 +2607,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 222,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(7031),
                             ISO2 = "TT",
                             ISO3 = "TTO",
                             IsDeleted = false,
@@ -2636,8 +2618,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 223,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(7036),
                             ISO2 = "TV",
                             ISO3 = "TUV",
                             IsDeleted = false,
@@ -2647,8 +2629,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 224,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(7041),
                             ISO2 = "TW",
                             ISO3 = "TWN",
                             IsDeleted = false,
@@ -2658,8 +2640,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 225,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(7047),
                             ISO2 = "TZ",
                             ISO3 = "TZA",
                             IsDeleted = false,
@@ -2669,8 +2651,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 226,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(7052),
                             ISO2 = "UA",
                             ISO3 = "UKR",
                             IsDeleted = false,
@@ -2680,8 +2662,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 227,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(7057),
                             ISO2 = "UG",
                             ISO3 = "UGA",
                             IsDeleted = false,
@@ -2691,8 +2673,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 228,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(7063),
                             ISO2 = "UM",
                             ISO3 = "UMI",
                             IsDeleted = false,
@@ -2702,8 +2684,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 229,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(7070),
                             ISO2 = "US",
                             ISO3 = "USA",
                             IsDeleted = false,
@@ -2713,8 +2695,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 230,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(7075),
                             ISO2 = "UY",
                             ISO3 = "URY",
                             IsDeleted = false,
@@ -2724,8 +2706,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 231,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(7080),
                             ISO2 = "UZ",
                             ISO3 = "UZB",
                             IsDeleted = false,
@@ -2735,8 +2717,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 232,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(7086),
                             ISO2 = "VA",
                             ISO3 = "VAT",
                             IsDeleted = false,
@@ -2746,8 +2728,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 233,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(7094),
                             ISO2 = "VC",
                             ISO3 = "VCT",
                             IsDeleted = false,
@@ -2757,8 +2739,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 234,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(7115),
                             ISO2 = "VE",
                             ISO3 = "VEN",
                             IsDeleted = false,
@@ -2768,8 +2750,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 235,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(7123),
                             ISO2 = "VG",
                             ISO3 = "VGB",
                             IsDeleted = false,
@@ -2779,8 +2761,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 236,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(7129),
                             ISO2 = "VI",
                             ISO3 = "VIR",
                             IsDeleted = false,
@@ -2790,8 +2772,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 237,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(7135),
                             ISO2 = "VN",
                             ISO3 = "VNM",
                             IsDeleted = false,
@@ -2801,8 +2783,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 238,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(7141),
                             ISO2 = "VU",
                             ISO3 = "VUT",
                             IsDeleted = false,
@@ -2812,8 +2794,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 239,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(7147),
                             ISO2 = "WF",
                             ISO3 = "WLF",
                             IsDeleted = false,
@@ -2823,8 +2805,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 240,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(7152),
                             ISO2 = "WS",
                             ISO3 = "WSM",
                             IsDeleted = false,
@@ -2834,8 +2816,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 241,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(7159),
                             ISO2 = "YE",
                             ISO3 = "YEM",
                             IsDeleted = false,
@@ -2845,8 +2827,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 242,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(7164),
                             ISO2 = "YT",
                             ISO3 = "MYT",
                             IsDeleted = false,
@@ -2856,8 +2838,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 243,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(7169),
                             ISO2 = "ZA",
                             ISO3 = "ZAF",
                             IsDeleted = false,
@@ -2867,8 +2849,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 244,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(7175),
                             ISO2 = "ZM",
                             ISO3 = "ZMB",
                             IsDeleted = false,
@@ -2878,8 +2860,8 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                         new
                         {
                             Id = 245,
-                            AccountIdCreationDate = 0,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = "system",
+                            CreatedDate = new DateTime(2023, 3, 6, 19, 55, 15, 525, DateTimeKind.Local).AddTicks(7180),
                             ISO2 = "ZW",
                             ISO3 = "ZWE",
                             IsDeleted = false,
@@ -2896,15 +2878,6 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("AccountIdCreationDate")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("AccountIdDeleteDate")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("AccountIdUpdateDate")
-                        .HasColumnType("int");
-
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
 
@@ -2916,6 +2889,9 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
+
+                    b.Property<string>("LastDeletedBy")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastModifiedBy")
                         .HasColumnType("nvarchar(max)");
@@ -2940,15 +2916,6 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("AccountIdCreationDate")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("AccountIdDeleteDate")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("AccountIdUpdateDate")
-                        .HasColumnType("int");
-
                     b.Property<int>("ArtistId")
                         .HasColumnType("int");
 
@@ -2966,6 +2933,9 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
 
                     b.Property<int>("JoinInYear")
                         .HasColumnType("int");
+
+                    b.Property<string>("LastDeletedBy")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastModifiedBy")
                         .HasColumnType("nvarchar(max)");
@@ -3000,15 +2970,6 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("AccountIdCreationDate")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("AccountIdDeleteDate")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("AccountIdUpdateDate")
-                        .HasColumnType("int");
-
                     b.Property<DateTime?>("BirthDate")
                         .HasColumnType("datetime2");
 
@@ -3040,6 +3001,9 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
+                    b.Property<string>("LastDeletedBy")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("LastModifiedBy")
                         .HasColumnType("nvarchar(max)");
 
@@ -3063,15 +3027,6 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("AccountIdCreationDate")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("AccountIdDeleteDate")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("AccountIdUpdateDate")
-                        .HasColumnType("int");
-
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
 
@@ -3087,6 +3042,9 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
+
+                    b.Property<string>("LastDeletedBy")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastModifiedBy")
                         .HasColumnType("nvarchar(max)");
@@ -3111,15 +3069,6 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("AccountIdCreationDate")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("AccountIdDeleteDate")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("AccountIdUpdateDate")
-                        .HasColumnType("int");
-
                     b.Property<int>("AlbumId")
                         .HasColumnType("int");
 
@@ -3137,6 +3086,9 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
+
+                    b.Property<string>("LastDeletedBy")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastModifiedBy")
                         .HasColumnType("nvarchar(max)");
@@ -3171,15 +3123,6 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("AccountIdCreationDate")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("AccountIdDeleteDate")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("AccountIdUpdateDate")
-                        .HasColumnType("int");
-
                     b.Property<string>("Comment")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -3195,6 +3138,9 @@ namespace SoundBeats.Infrastructure.Persistence.Data.Migrations
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
+
+                    b.Property<string>("LastDeletedBy")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastModifiedBy")
                         .HasColumnType("nvarchar(max)");

@@ -1,12 +1,10 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using SoundBeats.Application.Queries;
+using SoundBeats.Application.Features.Country;
 using SoundBeats.Core.Custom;
 using SoundBeats.Core.DTO;
-using SoundBeats.Core.Entities;
 using SoundBeats.Core.Entities.Base;
-using SoundBeats.Core.Interfaces;
 using SoundBeats.Core.Wrappers;
 
 namespace SoundBeats.Api.Controllers

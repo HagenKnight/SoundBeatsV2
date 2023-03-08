@@ -23,12 +23,17 @@ namespace SoundBeats.Infrastructure.Persistence.Services
         {
         }
 
+        #region Query actions
+
         public async Task<IEnumerable<GenreDTO>> GetGenres(CancellationToken cancellationToken = default) =>
             await GetAllAsync(cancellationToken);
 
-
         public async Task<GenreDTO> FindGenre(int id, CancellationToken cancellationToken = default) =>
             await FindAsync(id, cancellationToken);
+
+        #endregion
+
+        #region Command actions
 
         public async Task<CreateGenreDTO> AddGenre(CreateGenreDTO objDTO, CancellationToken cancellationToken = default)
         {
@@ -39,24 +44,45 @@ namespace SoundBeats.Infrastructure.Persistence.Services
                 return Mapper.Map<CreateGenreDTO>(await InsertAsync(objDTO, cancellationToken));
         }
 
-        public async Task<GenreDTOUpdate> UpdateGenre(GenreDTOUpdate objDTO, CancellationToken cancellationToken = default)
+        public async Task<UpdateGenreDTO> UpdateGenre(UpdateGenreDTO objDTO, CancellationToken cancellationToken = default)
         {
-            var ifExists = await GetSingleAsync(u => u.Name == objDTO.Name && u.IsDeleted == false);
+            var ifExists = await GetSingleAsync(u => u.Id == objDTO.Id && u.IsDeleted == false);
             if (ifExists == null)
-                throw new EntityNotFoundException(objDTO.GetType(), objDTO.Name);
+                throw new EntityNotFoundException(objDTO.GetType(), objDTO.Id);
             else
-                return Mapper.Map<GenreDTOUpdate>(await UpdateAsync(objDTO, cancellationToken));
+            {
+                try
+                {
+                    ifExists = await GetSingleAsync(u => u.Name == objDTO.Name && u.IsDeleted == false);
+                    if (ifExists != null)
+                        throw new EntityDuplicatedException($"The value {objDTO.Name} has already taken.");
+                    else
+                    {
+                        ifExists = await GetSingleAsync(u => u.Name == objDTO.Name && 
+                                                        u.Id == objDTO.Id && 
+                                                        u.IsDeleted == false);
+                    
+                        //throw new EntityDuplicatedException($"The value {objDTO.Name} has already taken.");
+                        return Mapper.Map<UpdateGenreDTO>(await UpdateAsync(objDTO, cancellationToken));
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Name is available
+                    return Mapper.Map<UpdateGenreDTO>(await UpdateAsync(objDTO, cancellationToken));
+                }
+            }
         }
-
 
         public async Task<DeleteGenreDTO> DeleteGenre(DeleteGenreDTO objDTO, bool autoSave = true, CancellationToken cancellationToken = default)
         {
             var ifExists = await FilterAsync(u => u.Id == objDTO.Id && u.IsDeleted == false);
             if (ifExists == null || ifExists.Count() == 0)
-                throw new EntityNotFoundException(objDTO.Id.ToString());
+                throw new EntityNotFoundException(objDTO.GetType(), objDTO.Id);
 
             return Mapper.Map<DeleteGenreDTO>(await DeleteAsync(objDTO, autoSave, cancellationToken));
         }
 
+        #endregion
     }
 }

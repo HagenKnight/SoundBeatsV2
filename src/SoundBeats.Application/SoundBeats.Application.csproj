@@ -20,4 +20,12 @@
       <ProjectReference Include="..\SoundBeats.Core\SoundBeats.Core.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Features\Country\Commands\CreateCountry\" />
+      <Folder Include="Features\Country\Commands\DeleteCountry\" />
+      <Folder Include="Features\Country\Commands\UpdateCountry\" />
+      <Folder Include="Features\Album\Commands\DeleteAlbum\" />
+      <Folder Include="Features\Album\Commands\UpdateAlbum\" />
+    </ItemGroup>
+
 </Project>

@@ -24,8 +24,11 @@ namespace SoundBeats.Infrastructure.Common.Services
 
         }
 
-        public async Task<IEnumerable<ArtistDTO>> GetArtists(CancellationToken cancellationToken = default) =>
-            await GetAllAsync(cancellationToken);
+        public async Task<IEnumerable<ArtistDTO>> GetArtists(CancellationToken cancellationToken = default)
+        {
+            var artistList = await GetAllIncludeAsync("Country", cancellationToken);
+            return Mapper.Map<IEnumerable<ArtistDTO>>(artistList);
+        }
 
         public async Task<ArtistDTO> FindArtist(int id, CancellationToken cancellationToken = default) =>
             await FindAsync(id, cancellationToken);

@@ -4,8 +4,8 @@ using SoundBeats.Core.Interfaces.Management;
 
 namespace SoundBeats.Core.Interfaces.Services.Base
 {
-    public interface ICRUDService<TQueryDTO, TCommandDTO, TKey, TEntity, TRepoAll, TContext> :
-        IReadService<TQueryDTO, TKey, TEntity, TRepoAll, TContext>
+    public interface ICRUDService<TQueryDTO, TCommandDTO, TKey, TEntity, TRepoAll, TContext>
+                   : IReadService<TQueryDTO, TKey, TEntity, TRepoAll, TContext>
      where TEntity : class, IEntityBase<TKey>
      where TRepoAll : IBaseRepository<TEntity, TContext>
      where TContext : DbContext, new()

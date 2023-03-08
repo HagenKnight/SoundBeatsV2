@@ -1,39 +1,20 @@
-﻿using Microsoft.EntityFrameworkCore;
-using SoundBeats.Core.Entities;
+﻿using SoundBeats.Core.Entities;
+using SoundBeats.Core.Interfaces.Base;
 using SoundBeats.Core.Interfaces.Repository;
 using SoundBeats.Infrastructure.Persistence.Data;
+using SoundBeats.Infrastructure.Persistence.Repository.Base;
+using System.Linq.Expressions;
 
 namespace SoundBeats.Infrastructure.Common.Repositories
 {
-    public class AlbumRepository : IAlbumRepository
+    public class AlbumRepository : BaseRepository<Album, int, SoundBeatsDbContext>, IAlbumRepository<SoundBeatsDbContext>
     {
 
         private readonly SoundBeatsDbContext _soundBeatsDbContext;
-        public AlbumRepository(SoundBeatsDbContext soundBeatsDbContext) => _soundBeatsDbContext = soundBeatsDbContext;
+        public AlbumRepository(IDbFactory<SoundBeatsDbContext> dbFactory) : base(dbFactory) { }
 
-        public async Task<Album> GetAlbum(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task<List<Album>> GetAlbums()
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task<Album> AddAlbum(Album artist)
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task<Album> UpdateAlbum(Album artist)
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task<Album> DeleteAlbum(int id)
-        {
-            throw new NotImplementedException();
-        }
+        public async Task<IEnumerable<Album>> FilterAlbum(Expression<Func<Album, bool>> predicate, CancellationToken cancellationToken = default) =>
+            await FilterAsync(predicate, cancellationToken);
+        
     }
 }
